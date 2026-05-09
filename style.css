@@ -183,13 +183,8 @@ h1 {
   margin-top: 14px;
 }
 
-.hero-tags span {
-  font-size: 0.8rem;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #d7e8ff;
-  background: rgba(10, 26, 48, 0.5);
+.hero-actions.center {
+  justify-content: center;
 }
 
 .content {
@@ -221,9 +216,17 @@ h1 {
 .card h2, .card h3, .card h4 { margin: 0 0 10px; }
 .card p, .card li { color: #d0e0f6; line-height: 1.5; }
 
-.grid { display: grid; gap: 14px; }
-.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.team-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .grid.team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
 
 .subcard {
   padding: 16px;
@@ -391,4 +394,136 @@ button.secondary:hover {
   }
   #scene-container { min-height: 500px; }
   .solar-rings { display: none; }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 16px 24px;
+  }
+  
+  .hero-inner {
+    max-width: 100%;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-text {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .cta {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .hero-tags {
+    justify-content: center;
+  }
+  
+  .content {
+    padding: 0 16px 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  
+  .grid {
+    gap: 12px;
+  }
+  
+  .subcard {
+    padding: 14px;
+  }
+  
+  .sim-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: auto;
+  }
+  
+  #scene-container {
+    min-height: 400px;
+    order: 2;
+  }
+  
+  #ui-panel {
+    order: 1;
+    padding: 16px;
+  }
+  
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .buttons {
+    flex-direction: column;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .footer {
+    padding: 12px 16px 20px;
+  }
+  
+  /* Ekip sayfası için özel */
+  .grid[style*="auto-fit"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+  
+  .subcard[style*="text-align: center"] img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .subcard[style*="text-align: center"] h3 {
+    font-size: 1.1rem;
+  }
+  
+  .subcard[style*="text-align: center"] p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet ve küçük ekranlar için */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero {
+    padding: 48px 20px 28px;
+  }
+  
+  .sim-layout {
+    grid-template-columns: 280px 1fr;
+    gap: 12px;
+  }
+  
+  #scene-container {
+    min-height: 480px;
+  }
+  
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
 }
